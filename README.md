@@ -1,8 +1,11 @@
 ### 部署步骤
+1.选择合适的ES版本修改`.env`，建议采用默认7.1.1即可
 
-1.`docker-compose up -d`
+2.修改合适的JVM堆内存，修改`docker-compose.yml`
 
-2.启动ELK Stack后需要在logstash中安装json_lines插件(重要)
+3.`docker-compose up -d`启动容器组
+
+4.启动ELK Stack后需要在logstash中安装json_lines插件(重要)
 ```
 # 进入logstash容器
 docker exec -it logstash /bin/bash
@@ -17,7 +20,7 @@ docker restart logstash
 ```
 作者在安装插件的过程中多次安装失败，由于网络原因，多尝试几次即可。
 
-3.Spring Boot 集成`logstash-logback-encoder`即可。
+5.Spring Boot 集成`logstash-logback-encoder`即可。
 
 ### Spring Boot 整合 ELK
 
