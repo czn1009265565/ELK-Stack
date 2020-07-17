@@ -58,4 +58,9 @@ docker restart logstash
 </configuration>
 ```
 
+补充:
+elasticsearch 安装ik插件
+1. `docker exec -it elasticsearch /bin/bash`
+2. `./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.8.0/elasticsearch-analysis-ik-7.8.0.zip`
+3. 重启即可
 
