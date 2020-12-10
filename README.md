@@ -48,7 +48,12 @@ docker restart logstash
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <!--可以访问的logstash日志收集端口-->
         <destination>localhost:5000</destination>
-        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+        <includeCallerData>true</includeCallerData>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeCallerData>true</includeCallerData>
+            <!-- 根据应用名称创建索引-->
+            <customFields>{"appName":"appName"}</customFields>
+        </encoder>
     </appender>
 
     <root level="INFO">
